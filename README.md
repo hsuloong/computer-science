@@ -1,2 +1,2 @@
-# computer_science
-Just do it
+# Just do it!
+
