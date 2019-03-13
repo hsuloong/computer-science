@@ -1,4 +1,6 @@
-DataStructure/DataStructure/Debug/*
+DataStructure/Introduction/Debug/*
+DataStructure/Vector/Debug/*
+
 DataStructure/.vs/*
 DataStructure/Debug/*
 DataStructure/*/Debug/*

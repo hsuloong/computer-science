@@ -1,5 +1,5 @@
 /*
-This file is a practice for Deng Junhui's book: "data structure"
+This file is a practice for Deng Junhui's book: "data structure[ISBN:9787302330646]"
 
 Question:
 Give a number n(>=0), calculate 2^n.

@@ -1,5 +1,5 @@
 /*
-This file is a practice for Deng Junhui's book: "data structure"
+This file is a practice for Deng Junhui's book: "data structure[ISBN:9787302330646]"
 
 Question:
 Find max element from an array with size n.
@@ -26,6 +26,46 @@ static int maxElement_n(const std::vector<int> &inputArray)
     return result;
 }
 
+/*Another O(n) Algorithm*/
+static int maxElement_n2_core(const std::vector<int> &inputArray, size_t index)
+{
+    if (index + 1 == inputArray.size()) {
+        return inputArray[index];
+    }
+    int tmpMax = maxElement_n2_core(inputArray, index + 1);
+    return inputArray[index] > tmpMax ? inputArray[index] : tmpMax;
+}
+
+static int maxElement_n2(const std::vector<int> &inputArray)
+{
+    if (inputArray.size() <= 0) {
+        return -1;
+    }
+    return maxElement_n2_core(inputArray, 0);
+}
+
+
+/*Another O(n) Algorithm*/
+static int maxElement_n3_core(const std::vector<int> &inputArray, size_t start, size_t end)
+{
+    if (start + 1 == end) {
+        return inputArray[start];
+    }
+    size_t middle = start + (end - start) / 2;
+    int maxLeft = maxElement_n3_core(inputArray, start, middle);
+    int maxRight = maxElement_n3_core(inputArray, middle, end);
+
+    return maxLeft > maxRight ? maxLeft : maxRight;
+}
+
+static int maxElement_n3(const std::vector<int> &inputArray)
+{
+    if (inputArray.size() <= 0) {
+        return -1;
+    }
+    return maxElement_n3_core(inputArray, 0, inputArray.size());
+}
+
 
 static void OneUnitTesting(const std::vector<int> &oneTestArray, int maxElement, 
                            const char *funcName, const funcPtr testFunction)
@@ -38,11 +78,11 @@ static void OneUnitTesting(const std::vector<int> &oneTestArray, int maxElement,
     std::chrono::duration<double> elapsedSeconds = end - start;
 
     if (result == maxElement) {
-        std::cout << "function[" << funcName << "\t]: \t|CORRECT|\t"
+        std::cout << "function[" << funcName << "]: \t|CORRECT|\t"
                   << elapsedSeconds.count() * 1000 << "ms.\n";
     }
     else {
-        std::cout << "function[" << funcName << "\t]: \t|WRONG  |\t"
+        std::cout << "function[" << funcName << "]: \t|WRONG  |\t"
                   << elapsedSeconds.count() * 1000 << "ms.\n";
     }
 }
@@ -68,6 +108,10 @@ void MaxElementUnitTesting()
     for (size_t i = 0; i < testArray.size(); i++) {
 
         OneUnitTesting(testArray[i], maxElements[i], "maxElement_n", maxElement_n);
+
+        OneUnitTesting(testArray[i], maxElements[i], "maxElement_n2", maxElement_n2);
+
+        OneUnitTesting(testArray[i], maxElements[i], "maxElement_n3", maxElement_n3);
 
         std::cout << std::endl;
 
