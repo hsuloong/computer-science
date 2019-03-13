@@ -20,7 +20,7 @@
 
 [Git](https://git-scm.com/):  A free and open source distributed version control system.
 
-[Xshell](https://www.netsarang.com/en/xshell/): A powerful shell client, not free.
+[Xshell](https://www.netsarang.com/en/xshell/): A powerful shell client, free for students.
 
 [XMind](https://www.xmind.net/): A full-featured mind mapping and brainstorming tool.
 
