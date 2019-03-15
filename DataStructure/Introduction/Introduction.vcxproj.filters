@@ -39,5 +39,14 @@
     <ClCompile Include="GreatestCommonDivisor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Sum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Reverse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Ackermann.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

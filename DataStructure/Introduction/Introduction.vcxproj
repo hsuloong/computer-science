@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ackermann.cpp" />
     <ClCompile Include="ChessboardCover%28NoneComplete%29.cpp" />
     <ClCompile Include="CountOnes.cpp" />
     <ClCompile Include="Fibonacci.cpp" />
@@ -123,6 +124,8 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MaxElement.cpp" />
     <ClCompile Include="Power2.cpp" />
+    <ClCompile Include="Reverse.cpp" />
+    <ClCompile Include="Sum.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

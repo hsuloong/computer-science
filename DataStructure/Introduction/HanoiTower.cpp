@@ -11,7 +11,7 @@ typedef unsigned int(*funcPtr)(unsigned int);
 
 
 /*A O(2^n) Algorithm*/
-void hanoiTower_power2n_core(unsigned int number, char src, char assist, char dst, unsigned int &steps)
+static void hanoiTower_power2n_core(unsigned int number, char src, char assist, char dst, unsigned int &steps)
 {
     if (number > 0) {
         hanoiTower_power2n_core(number - 1, src, dst, assist, steps);

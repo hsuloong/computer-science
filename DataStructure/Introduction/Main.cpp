@@ -4,12 +4,18 @@
 #include <cstdio>
 typedef void(*funcPtr)();
 
+/*Finished*/
 void CountOnesUnitTesting();               /*Unit test function from CountOnes.cpp*/
 void Power2UnitTesting();                  /*Unit test function from Power2.cpp*/
 void MaxElementUnitTesting();              /*Unit test function from MaxElement.cpp*/
 void FibonacciUnitTesting();               /*Unit test function from Fibonacci.cpp*/
 void HanoiTowerUnitTesting();              /*Unit test function from HanoiTower.cpp*/
+void SumUnitTesting();                     /*Unit test function from Sum.cpp*/
+void ReverseUnitTesting();                 /*Unit test function from Reverse.cpp*/
+
+/*Unfinished*/
 void GreatestCommonDivisorUnitTesting();   /*Unit test function from GreatestCommonDivisor.cpp*/
+void AckermannUnitTesting();               /*Unit test function from Ackermann.cpp*/
 
 
 int main(int argc, char *argv[])
@@ -22,7 +28,11 @@ int main(int argc, char *argv[])
     funcPtrMap["MaxElement"] = MaxElementUnitTesting;
     funcPtrMap["Fibonacci"] = FibonacciUnitTesting;
     funcPtrMap["HanoiTower"] = HanoiTowerUnitTesting;
+    funcPtrMap["Sum"] = SumUnitTesting;
+    funcPtrMap["Reverse"] = ReverseUnitTesting;
+
     funcPtrMap["GreatestCommonDivisor"] = GreatestCommonDivisorUnitTesting;
+    funcPtrMap["Ackermann"] = AckermannUnitTesting;
 
     for (int i = 1; i < argc; i++) {
         if (funcPtrMap.find(argv[i]) != funcPtrMap.end()) {
@@ -32,6 +42,7 @@ int main(int argc, char *argv[])
             std::cout << "Unit Test Fucntion [" << argv[i] << "] Not Found." << std::endl;
         }
     }
+    std::cout << "Test Finished!(Press 'q' to quit)" << std::endl;
 
     while (getchar() != 'q') {
         ;
