@@ -2,6 +2,7 @@
 #include <map>
 #include <iostream>
 #include <cstdio>
+
 typedef void(*funcPtr)();
 
 /*Finished*/
@@ -12,10 +13,13 @@ void FibonacciUnitTesting();               /*Unit test function from Fibonacci.c
 void HanoiTowerUnitTesting();              /*Unit test function from HanoiTower.cpp*/
 void SumUnitTesting();                     /*Unit test function from Sum.cpp*/
 void ReverseUnitTesting();                 /*Unit test function from Reverse.cpp*/
+void GreatestCommonDivisorUnitTesting();   /*Unit test function from GreatestCommonDivisor.cpp*/
+void ShiftLeftUnitTesting();               /*Unit test function from ShiftLeft.cpp*/
 
 /*Unfinished*/
-void GreatestCommonDivisorUnitTesting();   /*Unit test function from GreatestCommonDivisor.cpp*/
+
 void AckermannUnitTesting();               /*Unit test function from Ackermann.cpp*/
+void ChessboardCoverUnitTesting();         /*Unit test function from ChessboardCover.cpp*/
 
 
 int main(int argc, char *argv[])
@@ -30,9 +34,12 @@ int main(int argc, char *argv[])
     funcPtrMap["HanoiTower"] = HanoiTowerUnitTesting;
     funcPtrMap["Sum"] = SumUnitTesting;
     funcPtrMap["Reverse"] = ReverseUnitTesting;
-
     funcPtrMap["GreatestCommonDivisor"] = GreatestCommonDivisorUnitTesting;
+    funcPtrMap["ShiftLeft"] = ShiftLeftUnitTesting;
+    
     funcPtrMap["Ackermann"] = AckermannUnitTesting;
+    funcPtrMap["ChessboardCover"] = ChessboardCoverUnitTesting;
+    
 
     for (int i = 1; i < argc; i++) {
         if (funcPtrMap.find(argv[i]) != funcPtrMap.end()) {

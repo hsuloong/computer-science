@@ -33,9 +33,6 @@
     <ClCompile Include="HanoiTower.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ChessboardCover%28NoneComplete%29.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="GreatestCommonDivisor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -46,6 +43,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Ackermann.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessboardCover.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShiftLeft.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

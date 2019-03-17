@@ -116,7 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ackermann.cpp" />
-    <ClCompile Include="ChessboardCover%28NoneComplete%29.cpp" />
+    <ClCompile Include="ChessboardCover.cpp" />
     <ClCompile Include="CountOnes.cpp" />
     <ClCompile Include="Fibonacci.cpp" />
     <ClCompile Include="GreatestCommonDivisor.cpp" />
@@ -125,6 +125,7 @@
     <ClCompile Include="MaxElement.cpp" />
     <ClCompile Include="Power2.cpp" />
     <ClCompile Include="Reverse.cpp" />
+    <ClCompile Include="ShiftLeft.cpp" />
     <ClCompile Include="Sum.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

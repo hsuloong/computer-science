@@ -21,47 +21,120 @@ static unsigned int greatestCommonDivisor_n(unsigned int number1, unsigned int n
             return i;
         }
     }
-    return 1;
+    return 0;
 }
 
 /*A O(logn) Algorithm, n = number1+number2*/
 /*
 number1 = n*a,
 number2 = m*a,  a is greatest common divisor.
+number1-number2 = (n-m)*a, assume number1 >= number2
+if a is not number1-number2 and  number2 greatest common divisor
+then assume n-m = k*d, m = x*d,(d > 1)
+which can get n = (k+x)*d=>number1=(k+x)*d*a, number2=x*d*a, get a paradox.
 */
 static unsigned int greatestCommonDivisor_logn(unsigned int number1, unsigned int number2)
 {
-    unsigned int p = 1;
-
+    unsigned int product = 1;
     while (!(number1 & 1) && !(number2 & 1)) {
-        p *= 2; number1 /= 2; number2 /= 2;
+        product <<= 1; number1 >>= 1; number2 >>= 1;
     }
-
     while (true) {
-        unsigned int t = number1 > number2 ? number1 - number2 : number2 - number1;
-        if (t == 0) {
-            return number1 * p;
+        unsigned int diff = number1 > number2 ? number1 - number2 : number2 - number1;
+        if (diff == 0) {
+            return number1 * product;
         }
 
-        while (!(t & 1)) {
-            t /= 2;
+        while (!(diff & 1)) {
+            diff >>= 1;
         }
-        
-        number1 >= number2 ? number1 = t : number2 = t;
+        number1 >= number2 ? number1 = diff : number2 = diff;
     }
-    return 1;
+    return 0;
 }
 
 /*Another O(logn) Algorithm, Euclidean algorithm*/
+/*
+greatestCommonDivisor(a,b) = greatestCommonDivisor(b,a mod b)
+*/
 static unsigned int greatestCommonDivisor_logn2(unsigned int number1, unsigned int number2)
 {
-    unsigned int remainder = 1;
+    unsigned int remainder = 0;
     while (number2 > 0) {
         remainder = number1 % number2;
         number1 = number2;
         number2 = remainder;
     }
     return number1;
+}
+
+/*Another O(logn) Algorithm, Euclidean algorithm*/
+/*
+greatestCommonDivisor(a,b) = greatestCommonDivisor(b,a mod b)
+*/
+static unsigned int greatestCommonDivisor_logn3(unsigned int number1, unsigned int number2)
+{
+    if (number2 == 0) {
+        return number1;
+    }
+    return greatestCommonDivisor_logn3(number2, number1 % number2);
+}
+
+/*Another O(logn) Algorithm, Stein algorithm*/
+/*
+Same as greatestCommonDivisor_logn
+*/
+static unsigned int greatestCommonDivisor_logn4(unsigned int number1, unsigned int number2)
+{
+    if (number1 == 0) {
+        return number2;
+    }
+    if (number2 == 0) {
+        return number1;
+    }
+    if (number1 % 2 == 0 && number2 % 2 == 0) {
+        return 2 * greatestCommonDivisor_logn4(number1 >> 1, number2 >> 1);
+    }
+    else if (number1 % 2 == 0) {
+        return greatestCommonDivisor_logn4(number1 >> 1, number2 );
+    }
+    else if (number2 % 2 == 0) {
+        return greatestCommonDivisor_logn4(number1, number2 >> 1);
+    }
+    else {
+        if (number1 > number2) {
+            std::swap(number1, number2);
+        }
+        return greatestCommonDivisor_logn4(number2 - number1, number1);
+    }
+}
+
+/*Another O(logn) Algorithm*/
+/*
+Same as greatestCommonDivisor_logn
+*/
+static unsigned int greatestCommonDivisor_logn5(unsigned int number1, unsigned int number2)
+{
+    unsigned int r = 0;
+    while (number1 % 2 == 0 && number2 % 2 == 0) {
+        number1 >>= 1; number2 >>= 1; ++r;
+    }
+    while (true) {
+        while (number1 % 2 == 0) {
+            number1 >>= 1;
+        }
+        while (number2 % 2 == 0) {
+            number2 >>= 1;
+        }
+        number1 > number2 ? number1 = number1 - number2 : number2 = number2 - number1;
+        if (number1 == 0) {
+            return number2 << r;
+        }
+        if (number2 == 0) {
+            return number1 << r;
+        }
+    }
+    return 0;
 }
 
 
@@ -97,6 +170,12 @@ void GreatestCommonDivisorUnitTesting()
         OneUnitTesting(testArray[i], "greatestCommonDivisor_logn", greatestCommonDivisor_logn);
 
         OneUnitTesting(testArray[i], "greatestCommonDivisor_logn2", greatestCommonDivisor_logn2);
+
+        OneUnitTesting(testArray[i], "greatestCommonDivisor_logn3", greatestCommonDivisor_logn3);
+
+        OneUnitTesting(testArray[i], "greatestCommonDivisor_logn4", greatestCommonDivisor_logn4);
+
+        OneUnitTesting(testArray[i], "greatestCommonDivisor_logn5", greatestCommonDivisor_logn5);
 
         std::cout << std::endl;
 

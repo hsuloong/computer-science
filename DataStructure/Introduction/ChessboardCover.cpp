@@ -12,7 +12,7 @@ Problem set 1-24:
 
 typedef unsigned int(*funcPtr)(unsigned int);
 
-void ChessboardCover()
+void ChessboardCoverUnitTesting()
 {
 
 }
