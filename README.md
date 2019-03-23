@@ -32,6 +32,27 @@
 
 [WinSCP](https://winscp.net/eng/index.php):  A SFTP client and FTP client for Microsoft Windows.
 
+[Cpp Static Code Analysis Tool](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis#C,_C++): A wikipedia list of tools for cpp static code analysis.
+
+[Typora](https://typora.io/): A simple markdown editor.
+
+### Recommended website
+
+[GitHub](https://github.com/): You must know what I am saying!
+
+[Stack Overflow](https://stackoverflow.com/): A question and answer site for professional and enthusiast programmers.
+
+[LeetCode](https://leetcode.com/): An online programming learning platform, practice make perfect!
+
+[Google Cpp Style Guide](https://zh-google-styleguide.readthedocs.io/en/latest/): A Chinese translate version of google cpp  style guide.
+
+[Cpp Reference](https://en.cppreference.com/w/): A C++ reference manual.
+
+### Recommended C++ Library
+
+[Boost](https://www.boost.org/): A set of libraries for the C++ programming language that provide support for tasks and structures such as linear algebra,  image processing, etc.
+
+
 
 
 

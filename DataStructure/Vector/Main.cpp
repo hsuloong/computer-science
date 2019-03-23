@@ -6,7 +6,7 @@
 typedef void(*funcPtr)();
 
 /*Finished*/
-/*void CountOnesUnitTesting();*/               /*Unit test function from CountOnes.cpp*/
+void MyVectorUnitTesting();               /*Unit test function from MyVector.cpp*/
 
 /*Unfinished*/
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     static std::map<std::string, funcPtr> funcPtrMap;
 
     /*Add your unit test function*/
-    /*funcPtrMap["CountOnes"] = CountOnesUnitTesting;*/
+    funcPtrMap["MyVector"] = MyVectorUnitTesting;
 
     /*funcPtrMap["ChessboardCover"] = ChessboardCoverUnitTesting;*/
 
