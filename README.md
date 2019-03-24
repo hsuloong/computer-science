@@ -50,7 +50,7 @@
 
 ### Recommended C++ Library
 
-[Boost](https://www.boost.org/): A set of libraries for the C++ programming language that provide support for tasks and structures such as linear algebra,  image processing, etc.
+[Boost](https://www.boost.org/): A set of libraries for the C++ programming language such as linear algebra, image processing, etc.
 
 
 
