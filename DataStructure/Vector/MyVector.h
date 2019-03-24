@@ -27,10 +27,10 @@ protected:
     void merge(int start, int middle, int end);
     void mergeSort(int start, int end);
 
-    int binarySearch(T const &elem, int start, int end);
-    int binarySearch2(T const &elem, int start, int end);
-    int binarySearch3(T const &elem, int start, int end);
-    int fibonacciSearch(T const &elem, int start, int end);
+    int binarySearch(T const &elem, int start, int end) const;
+    int binarySearch2(T const &elem, int start, int end) const;
+    int binarySearch3(T const &elem, int start, int end) const;
+    int fibonacciSearch(T const &elem, int start, int end) const;
 
     class Fib {
     private:
@@ -191,7 +191,7 @@ int MyVector<T>::find(T const &elem, int start, int end) const
 template<typename T>
 int MyVector<T>::search(T const &elem) const
 {
-    search(elem, 0, _size);
+    return search(elem, 0, _size);
 }
 
 template<typename T>
@@ -317,7 +317,7 @@ int MyVector<T>::uniquify()
     int slow = 0, fast = 0;
     while (++fast < _size) {
         if (_elem[slow] != _elem[fast]) {
-            _elem[++slow] == _elem[fast];
+            _elem[++slow] = _elem[fast];
         }
     }
     _size = (++slow); shrink();
@@ -472,7 +472,7 @@ void MyVector<T>::mergeSort(int start, int end)
 
 /*Assume array[i]<=array[i+1]*/
 template<typename T>
-int MyVector<T>::binarySearch(T const &elem, int start, int end)
+int MyVector<T>::binarySearch(T const &elem, int start, int end) const
 {
     while (start < end) {
         int middle = start + (end - start) / 2;
@@ -491,9 +491,9 @@ int MyVector<T>::binarySearch(T const &elem, int start, int end)
 
 /*Assume array[i]<=array[i+1]*/
 template<typename T>
-int MyVector<T>::binarySearch2(T const &elem, int start, int end)
+int MyVector<T>::binarySearch2(T const &elem, int start, int end) const
 {
-    while (start <= end) {
+    while (start + 1 < end) {
         int middle = start + (end - start) / 2;
         if (elem < _elem[middle]) {
             end = middle;
@@ -510,7 +510,7 @@ Assume array[i]<=array[i+1]
 Return insert position if failed.
 */
 template<typename T>
-int MyVector<T>::binarySearch3(T const &elem, int start, int end)
+int MyVector<T>::binarySearch3(T const &elem, int start, int end) const
 {
     while (start < end) {
         int middle = start + (end - start) / 2;
@@ -526,7 +526,7 @@ int MyVector<T>::binarySearch3(T const &elem, int start, int end)
 
 /*Assume array[i]<=array[i+1]*/
 template<typename T>
-int MyVector<T>::fibonacciSearch(T const &elem, int start, int end)
+int MyVector<T>::fibonacciSearch(T const &elem, int start, int end) const
 {
     Fib fib(end - start);
     while (start < end) {

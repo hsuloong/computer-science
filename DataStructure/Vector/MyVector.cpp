@@ -64,10 +64,29 @@ static void OneUnitTesting(const MyVector<int> &oneTestArray, const std::vector<
     }
 }
 
+static void OneUnitTesting(const MyVector<int> &oneTestArray, bool isOrdered, const char *funcName)
+{
+    bool correct = ((oneTestArray.disordered() <= 0) == isOrdered);
+
+    if (correct) {
+        std::cout << "function[" << funcName << "\t]: \t\t|CORRECT|\n";
+    }
+    else {
+        std::cout << "function[" << funcName << "\t]: \t\t|WRONG  |\n";
+    }
+}
+
 static void visit(int & item)
 {
     item += 2;
 }
+
+struct functor
+{
+    void operator()(int &item) {
+        item += 2;
+    }
+};
 
 void MyVectorUnitTesting()
 {
@@ -140,7 +159,7 @@ void MyVectorUnitTesting()
             testMyVector6.insert(randomPosition, randomValue);
             testVector6.insert(testVector6.begin() + randomPosition, randomValue);
         }
-        OneUnitTesting(testMyVector6, testVector6, "insert(int,T);             ");
+        OneUnitTesting(testMyVector6, testVector6, "insert(int,T)              ");
 
         int randomRemoveTimes = sizeDistribution(randEngine) % (testMyVector6.size() + 1);
         for (int j = 0; j < randomRemoveTimes; j++) {
@@ -155,6 +174,58 @@ void MyVectorUnitTesting()
 
         testMyVector6.traverse(visit); std::for_each(testVector6.begin(), testVector6.end(), visit);
         OneUnitTesting(testMyVector6, testVector6, "traverse(void(*)(T&))     ");
+
+        MyVector<int> testMyVector7(randomArray, randomSize);
+        std::vector<int> testVector7(randomArray, randomArray + randomSize);
+        OneUnitTesting(testMyVector7, testVector7, "MyVector(T*,int)         ");
+        for (int j = 0; j < randomSize; j++) {
+            testMyVector7.insert(randomArray[i]);
+            testVector7.push_back(randomArray[i]);
+        }
+        OneUnitTesting(testMyVector7, testVector7, "insert(int)              ");
+
+        MyVector<int> testMyVector8 = testMyVector7;
+
+        testMyVector7.sort(); testMyVector7.uniquify();
+        std::sort(testVector7.begin(), testVector7.end());
+        auto uniqueIter = std::unique(testVector7.begin(), testVector7.end());
+        testVector7.erase(uniqueIter, testVector7.end());
+        OneUnitTesting(testMyVector7, testVector7, "uniquify()               ");
+
+        testMyVector8.deduplicate(); testMyVector8.sort();
+        OneUnitTesting(testMyVector8, testVector7, "deduplicate()            ");
+
+        MyVector<int> testMyVector9 = testMyVector8;
+        std::vector<int> testVector9 = testVector7;
+        int randomIndex = sizeDistribution(randEngine) % testMyVector9.size();
+        testMyVector9.remove(0, testMyVector9.search(testMyVector9[randomIndex]));
+        auto searchIter = std::lower_bound(testVector9.begin(), testVector9.end(), testVector9[randomIndex]);
+        testVector9.erase(testVector9.begin(), searchIter);
+        OneUnitTesting(testMyVector9, testVector9, "search(T)                ");
+
+        MyVector<int> testMyVector10(randomArray, randomSize); testMyVector10.deduplicate();
+        std::vector<int> testVector10;
+        for (int j = 0; j < testMyVector10.size(); j++) {
+            testVector10.push_back(testMyVector10[j]);
+        }
+        int randomIndex2 = sizeDistribution(randEngine) % testMyVector10.size();
+        testMyVector10.remove(0, testMyVector10.find(testMyVector10[randomIndex]));
+        auto findIter = std::find(testVector10.begin(), testVector10.end(), testVector10[randomIndex]);
+        testVector10.erase(testVector10.begin(), findIter);
+        OneUnitTesting(testMyVector10, testVector10, "find(T)                ");
+
+        MyVector<int> testMyVector11(randomArray, randomSize); 
+        testMyVector11.deduplicate(); testMyVector11.sort();
+        OneUnitTesting(testMyVector11, true, "disordered()           ");
+
+        testMyVector11.unsort();
+        OneUnitTesting(testMyVector11, false, "disordered()           ");
+
+        MyVector<int> testMyVector12(randomArray, randomSize);
+        std::vector<int> testVector12(randomArray, randomArray + randomSize);
+        functor visitFunctor; testMyVector12.traverse(visitFunctor);
+        std::for_each(testVector12.begin(), testVector12.end(), visitFunctor);
+        OneUnitTesting(testMyVector12, testVector12, "traverse(VST&)         ");
 
         delete[] randomArray; randomArray = nullptr;
     }
