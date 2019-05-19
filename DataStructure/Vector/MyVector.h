@@ -4,8 +4,8 @@ This file is a practice for Deng Junhui's book: "data structure[ISBN:97873023306
 Question:
 Design your own vector.
 */
-#ifndef COMPUTER_SCIENCE_DATASTRUCTURE_VECTOR_H
-#define COMPUTER_SCIENCE_DATASTRUCTURE_VECTOR_H
+#ifndef COMPUTER_SCIENCE_DATASTRUCTURE_MYVECTOR_H
+#define COMPUTER_SCIENCE_DATASTRUCTURE_MYVECTOR_H
 
 #include <cstdlib>
 #include <algorithm>
@@ -547,6 +547,6 @@ int MyVector<T>::fibonacciSearch(T const &elem, int start, int end) const
     return -1;
 }
 
-#endif /*COMPUTER_SCIENCE_DATASTRUCTURE_VECTOR_H*/
+#endif /*COMPUTER_SCIENCE_DATASTRUCTURE_MYVECTOR_H*/
 
 

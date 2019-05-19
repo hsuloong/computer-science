@@ -7,10 +7,9 @@ typedef void(*funcPtr)();
 
 /*Finished*/
 void MyVectorUnitTesting();               /*Unit test function from MyVector.cpp*/
+void MyStringUnitTesting();               /*Unit test function from MyString.cpp*/
 
 /*Unfinished*/
-
-/*void ChessboardCoverUnitTesting();*/         /*Unit test function from ChessboardCover.cpp*/
 
 
 int main(int argc, char *argv[])
@@ -19,9 +18,9 @@ int main(int argc, char *argv[])
 
     /*Add your unit test function*/
     funcPtrMap["MyVector"] = MyVectorUnitTesting;
+    funcPtrMap["MyString"] = MyStringUnitTesting;
 
-    /*funcPtrMap["ChessboardCover"] = ChessboardCoverUnitTesting;*/
-
+    
 
     for (int i = 1; i < argc; i++) {
         if (funcPtrMap.find(argv[i]) != funcPtrMap.end()) {
