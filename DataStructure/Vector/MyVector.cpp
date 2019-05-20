@@ -7,35 +7,6 @@
 #include <numeric>
 #include <random>
 
-/*
-Test Interface:
-    MyVector(int capacity = DEFAULT_CAPACITY, int size = 0, T value = 0);
-    MyVector(T const *inputArray, int start, int end);
-    MyVector(T const *inputArray, int end);
-    MyVector(MyVector<T> const& inputMyVector, int start, int end);
-    MyVector(MyVector<T> const& inputMyVector);
-    int size() const;
-    bool empty() const;
-    int disordered() const;
-    int find(T const &elem) const;
-    int find(T const &elem, int start, int end) const;
-    int search(T const &elem) const;
-    int search(T const &elem, int start, int end) const;
-    T& operator[](int index) const;
-    MyVector<T> & operator=(MyVector<T> const& inputMyVector);
-    T remove(int index);
-    int remove(int start, int end);
-    int insert(int position, T const& elem);
-    int insert(T const& elem);
-    void sort(int start, int end);
-    void sort();
-    void unsort(int start, int end);
-    void unsort();
-    int deduplicate();
-    int uniquify();
-    void traverse(void(*visit)(T&));
-    template<typename VST> void traverse(VST&visit);
-*/
 
 static void OneUnitTesting(const MyVector<int> &oneTestArray, const std::vector<int> &oneResultArray,
                            const char *funcName)
