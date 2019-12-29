@@ -1,3 +1,10 @@
+/*
+This file is a practice for Deng Junhui's book: "data structure[ISBN:9787302330646]"
+
+Question:
+Complete your own vector class unit testing.
+*/
+
 #include "MyVector.h"
 
 #include <iostream>

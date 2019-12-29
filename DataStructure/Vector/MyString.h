@@ -1,3 +1,9 @@
+/*
+This file is a practice for Deng Junhui's book: "data structure[ISBN:9787302330646]"
+
+Question:
+Design your own string.
+*/
 #ifndef COMPUTER_SCIENCE_DATASTRUCTURE_MYSTRING_H
 #define COMPUTER_SCIENCE_DATASTRUCTURE_MYSTRING_H
 
