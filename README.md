@@ -52,6 +52,10 @@
 
 [Boost](https://www.boost.org/): A set of libraries for the C++ programming language such as linear algebra, image processing, etc.
 
+[JsonCpp](https://github.com/open-source-parsers/jsoncpp): A C++ library that allows manipulating JSON values, including serialization and deserialization to and from strings.
+
+
+
 
 
 

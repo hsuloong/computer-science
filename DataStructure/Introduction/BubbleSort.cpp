@@ -3,4 +3,6 @@ This file is a practice for Deng Junhui's book: "data structure[ISBN:97873023306
 
 Question:
 Sort an array using bubble sort.
-*/// p 25
+*/
+
+//todo
